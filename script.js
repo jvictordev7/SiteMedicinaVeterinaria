@@ -1,8 +1,4 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
-// Your web app's Firebase configuration
+// Configuração do Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyD-fkZV3GlVyO1ajekW6_2ErjRTqe8O7SY",
   authDomain: "medicinaveterinaria-1b5ed.firebaseapp.com",
@@ -12,33 +8,37 @@ const firebaseConfig = {
   appId: "1:738611210683:web:b056e608d3e65903da3c9e"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+// Inicializando o Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
 
-// Função para autenticar usuário
+// Função para autenticar o usuário
 const login = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password)
+  auth.signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
-      // Sucesso na autenticação
+      // Usuário autenticado com sucesso
       const user = userCredential.user;
       console.log('Usuário autenticado:', user);
-      // Redireciona para home.html
-      console.log('Redirecionando para home.html');
-      window.location.href = 'home.html'; // Redirecionamento
+      // Redireciona para a página home.html
+      window.location.href = 'home.html';
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.error('Erro ao autenticar:', errorCode, errorMessage);
-      alert('Erro ao fazer login. Verifique suas credenciais.');
+      // Exibe erro em caso de falha no login
+      console.error('Erro ao fazer login:', error.code, error.message);
+      alert('Erro: ' + error.message);
     });
 };
 
-// Adicionar event listener para o formulário
+// Lida com o envio do formulário de login
 document.getElementById('loginForm').addEventListener('submit', (e) => {
-  e.preventDefault(); // Impede o envio padrão do formulário
+  e.preventDefault();  // Evita o comportamento padrão do formulário
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
-  login(email, password);
+
+  // Valida se os campos de email e senha estão preenchidos
+  if (email && password) {
+    login(email, password);
+  } else {
+    alert('Preencha todos os campos!');
+  }
 });
