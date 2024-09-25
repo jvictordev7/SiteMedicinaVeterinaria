@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="stylesLogin.css">
-    <!-- Incluindo as bibliotecas do Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js"></script>
+    <!-- Incluindo o favicon -->
+    <link rel="icon" href="./img/favicon.png" type="image/x-icon">
+    <!-- Vanilla Tilt para animação -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
     <script defer src="script.js"></script>
 </head>
 <body>
     <div class="container">
-        <div class="image-container">
-            <img src="./img/imgLogin.jpg" alt="Imagem do Site"> <!-- Imagem da tela de login -->
+        <div class="image-container" data-tilt data-tilt-reverse="true">
+            <img src="./img/logo.png" alt="Imagem do Site"> <!-- Imagem da tela de login -->
         </div>
         <div class="login-container">
-            <h1>Login</h1>
+            <h1>Login</h1> <!-- Título Login centralizado -->
             <form id="loginForm">
                 <input type="email" id="email" placeholder="Usuário" required>
                 <input type="password" id="password" placeholder="Senha" required>
                 <button type="submit">Entrar</button>
             </form>
-            <p>Esqueceu a senha?</p>
+            <p>Esqueceu a senha?</p> <!-- Texto Esqueceu a senha posicionado na parte inferior -->
         </div>
     </div>
 </body>
