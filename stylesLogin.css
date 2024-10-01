@@ -65,21 +65,26 @@ form {
 }
 
 input {
+    background-color: #ECE8E8;
     padding: 10px;
-    margin-bottom: 20px; /* Aumentando a margem inferior para separar mais do botão */
-    border: 1px solid var(--cor-secundaria);
-    border-radius: 5px;
-    width: 300px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 250px;
+    height: 20px;
+    /* Sombra */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ajuste conforme o efeito desejado */
+    border: none; /* Remove qualquer borda padrão do input */
 }
 
 button {
     padding: 10px;
+    font-size: 15px;
     background-color: var(--cor-primaria);
     color: var(--fundo);
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
-    width: 300px;
+    width: 150px;
     text-align: center;
     margin-top: 20px; /* Adicionando margem superior ao botão para mais espaçamento */
 }
@@ -89,10 +94,3 @@ button:hover {
     background-color: #007bb5;
 }
 
-p {
-    margin-top: 20px; /* Espaçamento para separar do botão */
-    font-size: 14px;
-    color: var(--cor-secundaria);
-    text-decoration: underline;
-    cursor: pointer;
-}

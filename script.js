@@ -14,7 +14,7 @@ VanillaTilt.init(document.querySelector("h1"), {
   "max-glare": 0.5    // Intensidade máxima do brilho
 });
 
-// Função de login (exemplo básico sem Firebase)
+
 document.getElementById('loginForm').addEventListener('submit', function (event) {
   event.preventDefault();
 
