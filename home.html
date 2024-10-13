@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medicina Veterinaria</title>
+    <title>Medicina Veterinária</title>
     <link rel="icon" href="./img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,16 +12,47 @@
         <nav>
             <ul>
                 <li><a href="#inicio">Início</a></li>
-                <li><a href="#doenças">Doenças</a></li>
+                <li><a href="#doencas">Doenças</a></li>
                 <li><a href="#quemsomos">Quem Somos</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <!-- Conteúdo do site aqui -->
+        <section id="formulario">
+            <h2>Adicionar Doença</h2>
+            <form id="doencaForm">
+                <label for="nomeDoenca">Nome da Doença:</label>
+                <input type="text" id="nomeDoenca" name="nomeDoenca" required>
+                <button type="submit">Adicionar</button>
+            </form>
+        </section>
+        <section id="listaDoencas">
+            <h2>Lista de Doenças</h2>
+            <ul id="doencas"></ul>
+        </section>
     </main>
     <footer>
         <!-- Rodapé do site aqui -->
     </footer>
+    <script>
+        document.getElementById('doencaForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nomeDoenca = document.getElementById('nomeDoenca').value;
+            if (nomeDoenca) {
+                const li = document.createElement('li');
+                li.textContent = nomeDoenca;
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Excluir';
+                deleteButton.addEventListener('click', function() {
+                    li.remove();
+                });
+
+                li.appendChild(deleteButton);
+                document.getElementById('doencas').appendChild(li);
+                document.getElementById('doencaForm').reset();
+            }
+        });
+    </script>
 </body>
 </html>

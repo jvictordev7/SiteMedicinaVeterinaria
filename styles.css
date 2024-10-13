@@ -1,11 +1,13 @@
 :root {
-    --cor-primaria: #009DE0; /* RGB 0, 157, 224 */
-    --cor-secundaria: #021D34; /* RGB 2, 29, 52 */
-    --cor-texto: #000000; /* Preto */
+    --cor-primaria: #009DE0;
+    --cor-secundaria: #021D34;
+    --cor-texto: #000000;
+    --cor-fundo: #FFFFFF;
 }
 
 body {
     font-family: 'Helvetica', sans-serif;
+    background: linear-gradient(to right, var(--cor-primaria), var(--cor-secundaria));
     margin: 0;
 }
 
@@ -13,12 +15,18 @@ header {
     background-color: var(--cor-secundaria);
     color: var(--cor-primaria);
     padding: 1rem;
+    width: 100%;
+    position: fixed; /* Fixar o header no topo */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Garantir que o header fique acima de outros elementos */
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
     text-align: center;
+    margin: 0;
 }
 
 nav ul li {
@@ -35,4 +43,87 @@ nav ul li a {
 nav ul li a:hover {
     text-decoration: underline;
     color: var(--cor-texto);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 80px; /* Espaço para o header fixo */
+}
+
+#formulario, #listaDoencas {
+    background-color: var(--cor-fundo);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 2rem;
+    width: 100%;
+    max-width: 600px; /* Ajuste conforme necessário */
+}
+
+#formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#formulario label, #formulario input, #formulario button {
+    margin-bottom: 1rem;
+    width: 100%; /* Para garantir que os elementos ocupem a largura total do formulário */
+    max-width: 300px; /* Ajuste conforme necessário */
+    text-align: center; /* Centraliza o texto dentro dos elementos */
+}
+
+#formulario input {
+    background-color: #ECE8E8;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+#formulario button {
+    padding: 10px;
+    font-size: 15px;
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 150px;
+    margin-top: 50px;
+}
+
+#formulario button:hover {
+    background-color: #007bb5;
+}
+
+#listaDoencas ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#listaDoencas li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+#listaDoencas button {
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 10px;
+    align-items: center;
+}
+
+#listaDoencas button:hover {
+    background-color: #007bb5;
 }
